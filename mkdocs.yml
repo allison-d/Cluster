@@ -1,11 +1,11 @@
 site_name: Bioinformatics Team Script Collection
 site_description: To provide a reference hub for team members to share code
 site_author: Allison Dickey
-site_url: https://allison-dickey.github.io/BCSC
+site_url: https://allison-d.github.io/Cluster
 
 # Repository
 repo_name: Bioinformatics Team Script Collection
-repo_url: https://github.com/allison-dickey/BCSC
+repo_url: https://github.com/allison-d/Cluster
 edit_uri: edit/main/docs/
 # Copyright
 copyright: 'Copyright &copy; 2023 - 2024'
