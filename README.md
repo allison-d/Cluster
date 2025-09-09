@@ -1,5 +1,5 @@
-# Script collection for the Bioinformatics Team 
-This GitHub site will maintain current versions of analysis scripts that are being actively maintained by members of the bioinformatics team. 
+# ShinyCLUSTER
+ShinyCLUSTER is an R Shiny app that can cluster molecules using Mass Spec features. The molecules will be clustered based on the specified features and need not have a known structure. Abundance data for sample comparisons can be displayed alongside the dendrograms as heatmap rings. This allows for a quick visual identification of groups of molecules with similar structures that have similar changes in fold change.
 
 ![alt_text](https://github.com/allison-dickey/BCSC/blob/main/docs/assets/berries.jpg)
 
