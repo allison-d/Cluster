@@ -1,7 +1,7 @@
 # ShinyCluster 
 ShinyCLUSTER is an R Shiny app that can cluster and generate a dendrogram of molecules from a dataset that contains Mass Spec features. The molecules do not need to have known structure and thus this app can be used to infer the structural properties of unknown molecules from the molecules with known identities in the dataset. If abundance data (ie fold change values) for sample comparisons exist for the molecules in the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This allows for a quick visual identification of groups of molecules with similar structures that have similar fold change values.
 
-![alt_text](https://github.com/allison-d/Cluster/blob/main/docs/assets/dendrogram.png)
+![alt_text](https://github.com/allison-d/Cluster/blob/main/docs/assets/For_github.png)
 
 ## Objective
 The goal of the ShinyCluster app is to provide a tool which aids in the identification of unknown compounds in Mass Spec datasets. By using Mass Spec features to cluster molecules with unknown structures along with those with known structures, one can obtain information about potential key features of unknown compounds based on other molecules that belong to the same clade. This tool also allows for the identification of any molecules which might be clear outliers relative to the other molecules in the dataset. Prior to the clustering step, the app presents users with the option to generate scatter plots of the Mass Spec features as well as Kendrick mass defect (KMD) values. These types of plots can be used in identifying outliers, as well as used to visualize homologous series through the KMD values and correlations between features. 
