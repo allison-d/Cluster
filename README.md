@@ -20,8 +20,7 @@ The ShinyCluster code exists in 3 files in the Code directory: app.R, server.R, 
   ├── Lipid_Colors.csv    
   ├── Lipid_log2_fold_change.csv 
   ├── PFAS_Features.csv                                     
-  ├── PFAS_Colors.csv
-  └── README.md                  
+  └── PFAS_Colors.csv                 
 ```
 
 ## Running ShinyCluster
@@ -58,6 +57,7 @@ then check the current working directory to see if it is that of the Code direct
 runApp("path to the Code directory")
 
 ## Test datasets
+
 There are two available test datasets for ShinyCluster. The first dataset contains Mass Spec features for lipid molecules and this dataset comes from [1]. There are three files for the lipid test dataset that are uploaded in the following ShinyCluster tabs:
 - Lipid_Features.csv : 'Step 1 - Upload Feature Data'
 - Lipid_Colors.csv : 'Step 2 - Upload Group Colors'
