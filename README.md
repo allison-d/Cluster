@@ -56,17 +56,17 @@ Run `rlang::last_trace()` to see where the error occurred
 then check the current working directory to see if it is that of the Code directory. If not, then modify runApp() as:
 runApp("path to the Code directory")
 
-## Test datasets
+## Test Datasets
 
 There are two test datasets that are available for ShinyCluster. The first dataset contains Mass Spec features for lipid molecules [2] and the second dataset contains PFAS molecules [3]. The files for 
 these two test datasets can be uploaded in the following tabs: 
 
-# Lipid set
+### Lipid set
 - Lipid_Features.csv : 'Step 1 - Upload Feature Data'
 - Lipid_Colors.csv : 'Step 2 - Upload Group Colors'
 - Lipid_log2_fold_change.csv' : 'Step 4 - Upload Abundance Data'
 
-# PFAS set
+### PFAS set
 - PFAS_Features.csv : 'Step 1 - Upload Feature Data'
 - PFAS_Colors.csv : 'Step 2 - Upload Group Colors'
 
