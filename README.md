@@ -31,21 +31,21 @@ ShinyCluster can be run in an R environment. The following R libraries are neede
 - ggtree
 - bslib
 
-Two possible methods for running ShinyCluster include the R console and RStudio. Both methods will open ShinyCluster in a new RStudio window. From there, the app can also be opened in a browser. ShinyCluster has six tabs, where the first tab 'Overview' describes
+Two possible methods for running ShinyCluster include the R console and RStudio. Both methods will open ShinyCluster in a new RStudio window. The app can either be run through this window, or in a Browser with the 'Open in Browser' link. ShinyCluster has six tabs, where the first tab 'Overview' describes
 the expected file formats for the CSV files that are uploaded to the app.
 
 1. R console: after installing the R libraries, one can run the following lines after adding their path to the 'code' directory in runApp().
 
 ```
 library(shiny)
-shiny::runApp("path to the Code directory")
+shiny::runApp("path to the code directory")
 ```
 
-2. RStudio: the app can be run by first opening the app.R file in RStudio and then using 'Run App' in the upper right-hand corner. This will open ShinyCluster in a new RStudio window. The app can either be run through this window, or in a Browser with the 'Open in Browser' link. 
-One note is that app.R may need to be modified depending on the current working directory of RStudio. If this file is opened by starting from the Code directory and then opening app.R with RStudio, 
-then the current working directory in RStudio will be the Code directory and 'Run App' should work without any modifications to runApp() in the second line of app.R. 
-If alternatively RStudio is already open and app.R is opened through File --> Open File, then the current working directory may not be that of the Code directory. The current working directory can be obtained with getwd(). 
-If the Code directory is not the current working directory, then the path to the location of the Code directory needs to be added to runApp() as runApp("path to the Code directory"). 
+2. RStudio: the app can be run by first opening the app.R file in RStudio and then using 'Run App' in the upper right-hand corner. 
+One note is that app.R may need to be modified depending on the current working directory of RStudio. If app.R is opened in starting from the 'code' directory, 
+then the current working directory in RStudio should be the 'code' directory and 'Run App' should work without any modifications to runApp() located in the second line of app.R. 
+If alternatively RStudio is already open and app.R is opened through File --> Open File, then the current working directory may not be that of the 'code' directory. The working directory can be obtained with getwd(). 
+If the 'code' directory is not the current working directory, then the path to the 'code' directory needs to be added to runApp() ie runApp("path to the code directory"). 
 
 If one gets the following Error with 'Run App':
 
@@ -53,13 +53,12 @@ Error in `shinyAppDir()`:
 ! App dir must contain either app.R or server.R
 Run `rlang::last_trace()` to see where the error occurred
 
-then check the current working directory to see if it is that of the Code directory. If not, then modify runApp() as:
-runApp("path to the Code directory")
+then check the current working directory to see if it is equal to that of the 'code' directory. If not, then modify runApp() as:
+runApp("path to the code directory")
 
 ## Test Datasets
-
-There are two test datasets that are available for ShinyCluster. The first dataset contains Mass Spec features for lipid molecules [2] and the second dataset contains PFAS molecules [3]. The files for 
-these two test datasets can be uploaded in the following tabs: 
+There are two test datasets that are available for ShinyCluster. The first dataset contains Mass Spec features for lipid molecules [2] and the second dataset contains PFAS molecules [3]. These CSV files can be used as examples for running ShinyCluster. Both datasets include a CSV file that includes that 
+Mass Spec features and a CSV file that specifies the group colors. In addition, the lipid dataset includes a CSV file that includes sample comparison abundance data. Once the app is open, the files for these two test datasets can be uploaded in the following tabs: 
 
 ### Lipid set
 - Lipid_Features.csv : 'Step 1 - Upload Feature Data'
