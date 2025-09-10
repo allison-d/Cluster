@@ -1,5 +1,5 @@
 # ScopeCluster 
-ScopeCluster is an R Shiny app that can use Mass Spec features to cluster molecules and generate a dendrogram. The app is a visualization tool that can aid in the identification of unknown molecules through clustering with molecules in the dataset that have known structures. If abundance fold change values for sample comparisons exist for the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This allows one to quickly ascertain whether molecules with similar structures also have similar fold change values. The ScopeCluster dendrogram visualizations are based on those generated with the SCOPE toolbox (Structural-based connectivity and omic phenotype evaluations) [1]. SCOPE uses simplified molecular-input line-entry system (SMILES) annotations to cluster lipid molecules and the source code for the original SCOPE implementation can be found here: https://github.com/BakerLabMS/SCOPE
+ScopeCluster is an R Shiny app that can use Mass Spec features to cluster molecules and generate a dendrogram. If abundance fold change values for sample comparisons exist for the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This allows one to quickly ascertain whether molecules with similar structures also have similar fold change values. The ScopeCluster dendrogram visualizations are based on those generated with the SCOPE toolbox (Structural-based connectivity and omic phenotype evaluations) [1]. The original SCOPE implementation uses simplified molecular-input line-entry system (SMILES) annotations to cluster lipid molecules and its source code can be found here: https://github.com/BakerLabMS/SCOPE
 
 ![alt_text](https://github.com/allison-d/Cluster/blob/main/docs/For_github.png)
 
@@ -34,7 +34,7 @@ ScopeCluster can be run in an R environment. The following R libraries are neede
 Two possible methods for running ScopeCluster include the R console and RStudio. Both methods will open ScopeCluster in a new RStudio window. The app can either be run through this window, or in a Browser with the 'Open in Browser' link. ScopeCluster has six tabs, where the first tab 'Overview' describes
 the expected file formats for the CSV files that are uploaded to the app.
 
-1. R console: after installing the R libraries, one can run the following lines after adding their path to the 'code' directory in runApp().
+1. R console: after installing the R libraries, one can run the following lines after adding their path for the 'code' directory in runApp().
 
 ```
 library(shiny)
@@ -42,23 +42,22 @@ shiny::runApp("path to the code directory")
 ```
 
 2. RStudio: the app can be run by first opening the app.R file in RStudio and then using 'Run App' in the upper right-hand corner. 
-One note is that app.R may need to be modified depending on the current working directory of RStudio. If app.R is opened in starting from the 'code' directory, 
+One note is that app.R may need to be modified depending on the current working directory of RStudio. If app.R is opened starting from the 'code' directory, 
 then the current working directory in RStudio should be the 'code' directory and 'Run App' should work without any modifications to runApp() located in the second line of app.R. 
 If alternatively RStudio is already open and app.R is opened through File --> Open File, then the current working directory may not be that of the 'code' directory. The working directory can be obtained with getwd(). 
-If the 'code' directory is not the current working directory, then the path to the 'code' directory needs to be added to runApp() ie runApp("path to the code directory"). 
+If the current working directory is not the 'code' directory, then the 'code' directory path needs to be added to runApp() ie runApp("path to the code directory"). 
 
-If one gets the following Error with 'Run App':
+If one gets the following error message with 'Run App':
 
-Error in `shinyAppDir()`:
-! App dir must contain either app.R or server.R
-Run `rlang::last_trace()` to see where the error occurred
+Error in `shinyAppDir()`: <br />
+! App dir must contain either app.R or server.R <br />
+Run `rlang::last_trace()` to see where the error occurred <br />
 
-then check the current working directory to see if it is equal to that of the 'code' directory. If not, then modify runApp() as:
-runApp("path to the code directory")
+then check the current working directory in RStudio to see if it is equal to that of the 'code' directory. If not, then modify runApp() to include the path to that directory.
 
 ## Test Datasets
-There are two test datasets that are available for ScopeCluster. The first dataset contains Mass Spec features for lipid molecules [2] and the second dataset contains PFAS molecules [3]. These CSV files can be used as examples for running ScopeCluster. Both datasets include a CSV file that includes that 
-Mass Spec features and a CSV file that specifies the group colors. In addition, the lipid dataset includes a CSV file that includes sample comparison abundance data. Once the app is open, the files for these two test datasets can be uploaded in the following tabs: 
+There are two test datasets that are available for ScopeCluster. The first dataset contains Mass Spec features for lipid molecules [2] and the second dataset contains Mass Spec features for PFAS molecules [3]. These CSV files can be used as examples for running ScopeCluster. Both datasets include a CSV file that includes that 
+Mass Spec features and a CSV file that specifies the group colors. In addition, the lipid dataset includes a CSV file that includes sample comparison abundance data. Once the app is open, the files for these test datasets can be uploaded in the following tabs: 
 
 ### Lipid set
 - Lipid_Features.csv : 'Step 1 - Upload Feature Data'
