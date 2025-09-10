@@ -34,11 +34,12 @@ ShinyCluster can be run in an R environment. The following R libraries are neede
 Two possible methods for running ShinyCluster include the R console and RStudio. Both methods will open ShinyCluster in a new RStudio window. From there, the app can also be opened in a browser. ShinyCluster has six tabs, where the first tab 'Overview' describes
 the expected file formats for the CSV files that are uploaded to the app.
 
-1. R console: after installing the R libraries, one can run the following lines after adding their path to the 'code' directory in runApp(). This will open
-ShinyCluster in a new browser window.
+1. R console: after installing the R libraries, one can run the following lines after adding their path to the 'code' directory in runApp().
 
+```
 library(shiny)
 shiny::runApp("path to the Code directory")
+```
 
 2. RStudio: the app can be run by first opening the app.R file in RStudio and then using 'Run App' in the upper right-hand corner. This will open ShinyCluster in a new RStudio window. The app can either be run through this window, or in a Browser with the 'Open in Browser' link. 
 One note is that app.R may need to be modified depending on the current working directory of RStudio. If this file is opened by starting from the Code directory and then opening app.R with RStudio, 
