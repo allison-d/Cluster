@@ -1,5 +1,5 @@
 # ShinyCluster 
-ShinyCluster is an R Shiny app that can cluster molecules from a dataset that contains Mass Spec features and generate a dendrogram. The molecules do not need to have a known structure to be included in the cluster step. ShinyCluster is a visualization tool that can aid in the identification of unknown molecules from those molecules in the dataset that with known structures. If abundance fold change values for sample comparisons exist for the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This will allow a user to quickly ascertain whether molecules with similar structures also have similar fold change values.
+ShinyCluster is an R Shiny app that can cluster molecules from a dataset that contains Mass Spec features and generate a dendrogram. The molecules do not need to have a known structure to be included in the cluster step. ShinyCluster is a visualization tool that can aid in the identification of unknown molecules from those molecules in the dataset that with known structures. If abundance fold change values for sample comparisons exist for the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This will allow a user to quickly ascertain whether molecules with similar structures also have similar fold change values. The ShinyCluster dendrogram visualizations are similar to that generated using the SCOPE toolbox (Structural-based connectivity and omic phenotype evaluations) [1]. SCOPE clusters lipid molecules using simplified molecular-input line-entry system (SMILES) annotations and the source code is here: https://github.com/BakerLabMS/SCOPE
 
 ![alt_text](https://github.com/allison-d/Cluster/blob/main/docs/assets/For_github.png)
 
@@ -58,18 +58,24 @@ runApp("path to the Code directory")
 
 ## Test datasets
 
-There are two available test datasets for ShinyCluster. The first dataset contains Mass Spec features for lipid molecules and this dataset comes from [1]. There are three files for the lipid test dataset that are uploaded in the following ShinyCluster tabs:
+There are two test datasets that are available for ShinyCluster. The first dataset contains Mass Spec features for lipid molecules [2] and the second dataset contains PFAS molecules [3]. The files for 
+these two test datasets can be uploaded in the following tabs: 
+
+# Lipid set
 - Lipid_Features.csv : 'Step 1 - Upload Feature Data'
 - Lipid_Colors.csv : 'Step 2 - Upload Group Colors'
 - Lipid_log2_fold_change.csv' : 'Step 4 - Upload Abundance Data'
 
-The second dataset contains Mass Spec features for PFAS molecules and this dataset comes from [2]. There are two files for the PFAS test dataset and they are uploaded in the following tabs:
+# PFAS set
 - PFAS_Features.csv : 'Step 1 - Upload Feature Data'
 - PFAS_Colors.csv : 'Step 2 - Upload Group Colors'
 
-References
-[1] Kirkwood-Donelson, K.I., Chappel, J., Tobin, E., Dodds, J.N., Reif, D.M., DeWitt, J.C., Baker, E.S, 2024. Investigating mouse hepatic lipidome dysregulation following exposure to emerging per- and polyfluoroalkyl substances (PFAS). Chemosphere 354, 141654.
+## References
+[1] Odenkirk, M.T., Zin, P., Ash, J.R., Reif, D.M., Fourches, D., Baker, E.S., 2020. Structural-based connectivity and omic phenotype evaluations (SCOPE): A cheminformatics toolbox for investigating lipidomic changes in complex systems. Analyst 145, 7197–7209.
+https://pubs.rsc.org/en/content/articlelanding/2020/an/d0an01638a
+
+[2] Kirkwood-Donelson, K.I., Chappel, J., Tobin, E., Dodds, J.N., Reif, D.M., DeWitt, J.C., Baker, E.S, 2024. Investigating mouse hepatic lipidome dysregulation following exposure to emerging per- and polyfluoroalkyl substances (PFAS). Chemosphere 354, 141654.
 https://www.sciencedirect.com/science/article/pii/S0045653524005472
 
-[2] Kirkwood-Donelson, K.I., Dodds, J.N., Schnetzer, A., Hall, N., Baker, E.S., 2023. Uncovering per- and polyfluoroalkyl substances (PFAS) with nontargeted ion mobility spectrometry-mass spectrometry analyses. Sci. Adv. 9, eadj7048.
+[3] Kirkwood-Donelson, K.I., Dodds, J.N., Schnetzer, A., Hall, N., Baker, E.S., 2023. Uncovering per- and polyfluoroalkyl substances (PFAS) with nontargeted ion mobility spectrometry-mass spectrometry analyses. Sci. Adv. 9, eadj7048.
 https://www.science.org/doi/10.1126/sciadv.adj7048 
