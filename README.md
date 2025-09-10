@@ -4,10 +4,10 @@ ShinyCluster is an R Shiny app that can use Mass Spec features to cluster molecu
 ![alt_text](https://github.com/allison-d/Cluster/blob/main/docs/For_github.png)
 
 ## Objective
-The goal of ShinyCluster is to provide a tool which can aid in the identification of unknown compounds in large Mass Spec datasets. By using Mass Spec features to cluster datasets that contain molecules with unknown structures as well as molecules that have known structures, one can obtain structural information about features of unknown compounds based on other molecules found in the same clade. This tool also allows for the identification of molecules which might be outliers relative to the other molecules in the dataset. Prior to the clustering step, ShinyCluster presents users with the option of generating scatter plots of the Mass Spec features and Kendrick mass defect (KMD) values with base groups CH2 and CF2. These scatter plots can be used to examine specific feature values for potential outliers, as well as identifiy the existence of homologous series through the KMD values and visualize correlations between sets of features. 
+The goal of ShinyCluster is to provide a tool which can aid in the identification of unknown compounds in large Mass Spec datasets. By using Mass Spec features to cluster datasets that contain molecules with unknown structures as well as molecules that have known structures, one can obtain structural information about features of unknown compounds based on other molecules found in the same or nearby clades. This tool also allows for the identification of molecules which might be outliers relative to the other molecules in the dataset. Prior to the clustering step, ShinyCluster presents users with the option of generating scatter plots of the Mass Spec features and Kendrick mass defect (KMD) values with base groups CH2 and CF2. These scatter plots can be used to examine specific feature values for potential outliers, as well as identifiy the existence of homologous series through the KMD values and visualize correlations between sets of features. 
 
 ## Directory Organization
-There are 3 R files that are used to run ShinyCluster: app.R, server.R, and ui.R. These files are found in the 'code' directory and the files in this directory are shown below. In addition to these R files, the CSV files for two test datasets exist in the 'data' directory. 
+There are 3 R files that are used to run ShinyCluster: app.R, server.R, and ui.R. These files are found in the 'code' directory and the files in this directory are shown below. In addition to these R files, the CSV files for two test datasets are located in the 'data' directory. 
 
 ```
 .
@@ -31,10 +31,11 @@ ShinyCluster can be run in an R environment. The following R libraries are neede
 - ggtree
 - bslib
 
-Two possible methods for running ShinyCluster include the R console and RStudio. 
+Two possible methods for running ShinyCluster include the R console and RStudio. Both methods will open ShinyCluster in a new RStudio window. From there, the app can also be opened in a browser. ShinyCluster has six tabs, where the first tab 'Overview' describes
+the expected file formats for the CSV files that are uploaded to the app.
 
-1. R console: after installing the R libraries, one can run the following lines after adding the path to the Code directory. This will open
-ShinyCluster in a new browser window. 
+1. R console: after installing the R libraries, one can run the following lines after adding their path to the 'code' directory in runApp(). This will open
+ShinyCluster in a new browser window.
 
 library(shiny)
 shiny::runApp("path to the Code directory")
