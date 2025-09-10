@@ -1,48 +1,75 @@
 # ShinyCluster 
-ShinyCLUSTER is an R Shiny app that can cluster and generate a dendrogram of molecules from a dataset that contains Mass Spec features. The molecules do not need to have known structure and thus this app can be used to infer the structural properties of unknown molecules from the molecules with known identities in the dataset. If abundance data (ie fold change values) for sample comparisons exist for the molecules in the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This allows for a quick visual identification of groups of molecules with similar structures that have similar fold change values.
+ShinyCluster is an R Shiny app that can cluster molecules from a dataset that contains Mass Spec features and generate a dendrogram. The molecules do not need to have a known structure to be included in the cluster step. ShinyCluster is a visualization tool that can aid in the identification of unknown molecules from those molecules in the dataset that with known structures. If abundance fold change values for sample comparisons exist for the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This will allow a user to quickly ascertain whether molecules with similar structures also have similar fold change values.
 
 ![alt_text](https://github.com/allison-d/Cluster/blob/main/docs/assets/For_github.png)
 
 ## Objective
-The goal of the ShinyCluster app is to provide a tool which aids in the identification of unknown compounds in Mass Spec datasets. By using Mass Spec features to cluster molecules with unknown structures along with those with known structures, one can obtain information about potential key features of unknown compounds based on other molecules that belong to the same clade. This tool also allows for the identification of any molecules which might be clear outliers relative to the other molecules in the dataset. Prior to the clustering step, the app presents users with the option to generate scatter plots of the Mass Spec features as well as Kendrick mass defect (KMD) values. These types of plots can be used in identifying outliers, as well as used to visualize homologous series through the KMD values and correlations between features. 
+The goal of ShinyCluster is to provide a tool which can aid in the identification of unknown compounds in large Mass Spec datasets. By using Mass Spec features to cluster molecules that may contain unknown structures along with molecules that have known structures, one can obtain structural information about features of unknown compounds based on other molecules found in the same clade. This tool also allows for the identification of molecules which might be outliers relative to the other molecules in the dataset. Prior to the clustering step, ShinyCluster presents users with the option of generating scatter plots of the Mass Spec features and Kendrick mass defect (KMD) values of base groups CH2 and CF2. These scatter plots can be used to look at the specific feature values for potential outliers, as well as to identifiy the existence of homologous series through the KMD values and to evaluate trends and correlations between sets of features. 
 
-is to house code that is currently being used by members of the bioinformatics team. In addition, it will give team members the opportunity to review and comment on any newly written code.  Bioinformatics analyses frequently need to be updated based on upgrades in sequencing technologies and software. Thus, it will be helpful to have the most recent code for varying project types available in one central location. 
+## Code Directory Organization
 
-## Repository Organization
+The ShinyCluster code exists in 3 files in the Code directory: app.R, server.R, and ui.R. In addition, the CSV files for two test datasets exist within the data directory in Code. 
 
 ```
 .
-├── AUTHORS.md
-├── LICENSE
-├── README.md
-├── testsets
-|  ├── Lipid
-|  |  ├── bulk    
-│  |  |  ├── script.sh               <- analysis script
-│  |  |  └── README.md               <- comments about code and the location of test data that can be used to test the script
-│  |  └── scRNA-seq
-|  |    ├── script.sh               <- analysis script
-│  |    └── README.md               <- comments about code and the location of test data that can be used to test the script           
-│  ├── PFAS                       <- the assembly folders will contain similar script.sh and README.md files as for RNA-seq               
-│  |  ├── Transcript
-|  |  ├── Genome (short reads)
-|  |  └── Genome (long reads)
-|  └── Metagenomics                    <- the metagenomics folder will contain similar script.sh and README.md files as for RNA-seq
-└── docs                           
-  ├── assets                      <- Folder for website images
-  ├── stylesheets                 <- Folder containing style-related code for the website
-  ├── index.md                    <- Main website home page
-  ├── Data_Management_Plan.md     <- Data Management Plan
-  └── Governance_Operations.md    <- Governance & Operations file
+├── app.R
+├── server.R
+├── ui.R
+└── data
+  ├── Lipid_Features.csv
+  ├── Lipid_Colors.csv    
+  ├── Lipid_log2_fold_change.csv 
+  ├── PFAS_Features.csv                                     
+  ├── PFAS_Colors.csv
+  └── README.md                  
 ```
 
-## Structure
+## Running ShinyCluster
 
-The site will be structured based on the type of project. This will help team members easily identify where a specific script might be located and will also enable new folders to be added without any disruption to existing folders. A list of folders that might be included in this repository: 
+ShinyCluster can be run in an R environment. The following R libraries are needed to run ShinyCluster:
 
-- RNA-seq (bulk) differential expression
-- scRNA-seq
-- Transcript Assembly
-- Genome Assembly (short-reads)
-- Genome Assembly (long-reads)
-- Metagenomics
+- shiny
+- dplyr
+- plotly
+- ggtree
+- bslib
+
+Two possible methods for running ShinyCluster include the R console and RStudio. 
+
+1. R console: after installing the R libraries, one can run the following lines after adding the path to the Code directory. This will open
+ShinyCluster in a new browser window. 
+
+library(shiny)
+shiny::runApp("path to the Code directory")
+
+2. RStudio: the app can be run by first opening the app.R file in RStudio and then using 'Run App' in the upper right-hand corner. This will open ShinyCluster in a new RStudio window. The app can either be run through this window, or in a Browser with the 'Open in Browser' link. 
+One note is that app.R may need to be modified depending on the current working directory of RStudio. If this file is opened by starting from the Code directory and then opening app.R with RStudio, 
+then the current working directory in RStudio will be the Code directory and 'Run App' should work without any modifications to runApp() in the second line of app.R. 
+If alternatively RStudio is already open and app.R is opened through File --> Open File, then the current working directory may not be that of the Code directory. The current working directory can be obtained with getwd(). 
+If the Code directory is not the current working directory, then the path to the location of the Code directory needs to be added to runApp() as runApp("path to the Code directory"). 
+
+If one gets the following Error with 'Run App':
+
+Error in `shinyAppDir()`:
+! App dir must contain either app.R or server.R
+Run `rlang::last_trace()` to see where the error occurred
+
+then check the current working directory to see if it is that of the Code directory. If not, then modify runApp() as:
+runApp("path to the Code directory")
+
+## Test datasets
+There are two available test datasets for ShinyCluster. The first dataset contains Mass Spec features for lipid molecules and this dataset comes from [1]. There are three files for the lipid test dataset that are uploaded in the following ShinyCluster tabs:
+- Lipid_Features.csv : 'Step 1 - Upload Feature Data'
+- Lipid_Colors.csv : 'Step 2 - Upload Group Colors'
+- Lipid_log2_fold_change.csv' : 'Step 4 - Upload Abundance Data'
+
+The second dataset contains Mass Spec features for PFAS molecules and this dataset comes from [2]. There are two files for the PFAS test dataset and they are uploaded in the following tabs:
+- PFAS_Features.csv : 'Step 1 - Upload Feature Data'
+- PFAS_Colors.csv : 'Step 2 - Upload Group Colors'
+
+References
+[1] Kirkwood-Donelson, K.I., Chappel, J., Tobin, E., Dodds, J.N., Reif, D.M., DeWitt, J.C., Baker, E.S, 2024. Investigating mouse hepatic lipidome dysregulation following exposure to emerging per- and polyfluoroalkyl substances (PFAS). Chemosphere 354, 141654.
+https://www.sciencedirect.com/science/article/pii/S0045653524005472
+
+[2] Kirkwood-Donelson, K.I., Dodds, J.N., Schnetzer, A., Hall, N., Baker, E.S., 2023. Uncovering per- and polyfluoroalkyl substances (PFAS) with nontargeted ion mobility spectrometry-mass spectrometry analyses. Sci. Adv. 9, eadj7048.
+https://www.science.org/doi/10.1126/sciadv.adj7048 
