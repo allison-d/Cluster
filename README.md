@@ -1,13 +1,13 @@
-# ShinyCluster 
-ShinyCluster is an R Shiny app that can use Mass Spec features to cluster molecules and generate a dendrogram. The app is a visualization tool that can aid in the identification of unknown molecules through clustering with molecules in the dataset that have known structures. If abundance fold change values for sample comparisons exist for the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This allows one to quickly ascertain whether molecules with similar structures also have similar fold change values. The ShinyCluster dendrogram visualizations are based on those generated with the SCOPE toolbox (Structural-based connectivity and omic phenotype evaluations) [1]. SCOPE uses simplified molecular-input line-entry system (SMILES) annotations to cluster lipid molecules and the source code for SCOPE can be found here: https://github.com/BakerLabMS/SCOPE
+# ScopeCluster 
+ScopeCluster is an R Shiny app that can use Mass Spec features to cluster molecules and generate a dendrogram. The app is a visualization tool that can aid in the identification of unknown molecules through clustering with molecules in the dataset that have known structures. If abundance fold change values for sample comparisons exist for the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This allows one to quickly ascertain whether molecules with similar structures also have similar fold change values. The ScopeCluster dendrogram visualizations are based on those generated with the SCOPE toolbox (Structural-based connectivity and omic phenotype evaluations) [1]. SCOPE uses simplified molecular-input line-entry system (SMILES) annotations to cluster lipid molecules and the source code for the original SCOPE implementation can be found here: https://github.com/BakerLabMS/SCOPE
 
 ![alt_text](https://github.com/allison-d/Cluster/blob/main/docs/For_github.png)
 
 ## Objective
-The goal of ShinyCluster is to provide a tool which can aid in the identification of unknown compounds in large Mass Spec datasets. By using Mass Spec features to cluster datasets that contain molecules with unknown structures as well as molecules that have known structures, one can obtain structural information about features of unknown compounds based on other molecules found in the same or nearby clades. This tool also allows for the identification of molecules which might be outliers relative to the other molecules in the dataset. Prior to the clustering step, ShinyCluster presents users with the option of generating scatter plots of the Mass Spec features and Kendrick mass defect (KMD) values with base groups CH2 and CF2. These scatter plots can be used to examine specific feature values for potential outliers, as well as identifiy the existence of homologous series through the KMD values and visualize correlations between sets of features. 
+The goal of ScopeCluster is to provide a tool which can aid in the identification of unknown compounds in large Mass Spec datasets. By using Mass Spec features to cluster datasets that contain molecules with unknown structures as well as molecules that have known structures, one can obtain structural information about features of unknown compounds based on other molecules found in the same or nearby clades. This tool also allows for the identification of molecules which might be outliers relative to the other molecules in the dataset. Prior to the clustering step, ScopeCluster presents users with the option of generating scatter plots of the Mass Spec features and Kendrick mass defect (KMD) values with base groups CH2 and CF2. These scatter plots can be used to examine specific feature values for potential outliers, as well as identifiy the existence of homologous series through the KMD values and visualize correlations between sets of features. 
 
 ## Directory Organization
-There are 3 R files that are used to run ShinyCluster: app.R, server.R, and ui.R. These files are found in the 'code' directory and the files in this directory are shown below. In addition to these R files, the CSV files for two test datasets are located in the 'data' directory. 
+There are 3 R files that are used to run ScopeCluster: app.R, server.R, and ui.R. These files are found in the 'code' directory and the files in this directory are shown below. In addition to these R files, the CSV files for two test datasets are located in the 'data' directory. 
 
 ```
 .
@@ -22,8 +22,8 @@ There are 3 R files that are used to run ShinyCluster: app.R, server.R, and ui.R
   └── PFAS_Colors.csv                 
 ```
 
-## Running ShinyCluster
-ShinyCluster can be run in an R environment. The following R libraries are needed to run ShinyCluster:
+## Running ScopeCluster
+ScopeCluster can be run in an R environment. The following R libraries are needed to run ScopeCluster:
 
 - shiny
 - dplyr
@@ -31,7 +31,7 @@ ShinyCluster can be run in an R environment. The following R libraries are neede
 - ggtree
 - bslib
 
-Two possible methods for running ShinyCluster include the R console and RStudio. Both methods will open ShinyCluster in a new RStudio window. The app can either be run through this window, or in a Browser with the 'Open in Browser' link. ShinyCluster has six tabs, where the first tab 'Overview' describes
+Two possible methods for running ScopeCluster include the R console and RStudio. Both methods will open ScopeCluster in a new RStudio window. The app can either be run through this window, or in a Browser with the 'Open in Browser' link. ScopeCluster has six tabs, where the first tab 'Overview' describes
 the expected file formats for the CSV files that are uploaded to the app.
 
 1. R console: after installing the R libraries, one can run the following lines after adding their path to the 'code' directory in runApp().
@@ -57,7 +57,7 @@ then check the current working directory to see if it is equal to that of the 'c
 runApp("path to the code directory")
 
 ## Test Datasets
-There are two test datasets that are available for ShinyCluster. The first dataset contains Mass Spec features for lipid molecules [2] and the second dataset contains PFAS molecules [3]. These CSV files can be used as examples for running ShinyCluster. Both datasets include a CSV file that includes that 
+There are two test datasets that are available for ScopeCluster. The first dataset contains Mass Spec features for lipid molecules [2] and the second dataset contains PFAS molecules [3]. These CSV files can be used as examples for running ScopeCluster. Both datasets include a CSV file that includes that 
 Mass Spec features and a CSV file that specifies the group colors. In addition, the lipid dataset includes a CSV file that includes sample comparison abundance data. Once the app is open, the files for these two test datasets can be uploaded in the following tabs: 
 
 ### Lipid set
