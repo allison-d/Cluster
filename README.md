@@ -1,4 +1,4 @@
-# TScopeCluster 
+# ScopeCluster 
 ScopeCluster is an R Shiny app that can use Mass Spec features to cluster molecules and generate a dendrogram. If abundance fold change values for sample comparisons exist for the dataset, then these abundance values can be displayed alongside the dendrograms as heatmap rings. This allows one to quickly ascertain whether molecules with similar structures also have similar fold change values. The ScopeCluster dendrogram visualizations are based on those generated with the SCOPE toolbox (Structural-based connectivity and omic phenotype evaluations) [1]. The original SCOPE implementation uses simplified molecular-input line-entry system (SMILES) annotations to cluster lipid molecules and its source code can be found here: https://github.com/BakerLabMS/SCOPE
 
 ![alt_text](https://github.com/allison-d/Cluster/blob/main/docs/For_github.png)
